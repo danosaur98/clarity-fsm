@@ -44,6 +44,7 @@ describe("turnstile contract test suite", () => {
       assert.equal(await getState(), 0);
     })
     it("coin while locked should change state to unlocked", async () => {
+      assert.equal(await getState(), 0);
       await execMethod("coin");
       assert.equal(await getState(), 1);
     })
@@ -54,6 +55,7 @@ describe("turnstile contract test suite", () => {
       assert.equal(await getState(), 1);
     })
     it("push while unlocked should change state to locked", async () => {
+      assert.equal(await getState(), 1);
       await execMethod("push");
       assert.equal(await getState(), 0);
     })

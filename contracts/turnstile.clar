@@ -10,10 +10,9 @@
 ;; if state is unlocked, push will turn state into locked
 (define-public (push)
     (begin 
-        (if (is-eq (var-get state) 1) ;; if unlocked, turn state into locked
-            (var-set state 0)
-            (var-set state (var-get state)) ;; if locked, leave state as locked
-        )
+        ;; even if state is originally locked or unlocked,
+        ;; state should be locked after push
+        (var-set state 0)
         (ok (var-get state))
     )
 )
@@ -23,10 +22,9 @@
 ;; if state is unlocked, coin will have no effect
 (define-public (coin)
     (begin 
-        (if (is-eq (var-get state) 0) ;; if locked, turn state into unlocked
-            (var-set state 1)
-            (var-set state (var-get state)) ;; if unlocked, leave state as unlocked
-        )
+        ;; even if state is originally locked or unlocked,
+        ;; state should be unlocked after coin
+        (var-set state 1)
         (ok (var-get state))
     )
 )
