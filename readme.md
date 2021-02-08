@@ -2,7 +2,7 @@
 
 A contract for a coin based turnstile finite state machine (FSM).
 
-![Turnstile Finite State Machine](assets/turnstile_fsm.png)
+![Turnstile Finite State Machine](assets/turnstile_fsm.jpg)
 
 ## Usage
 
